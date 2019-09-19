@@ -41,7 +41,7 @@ const MyDataProductSelect = ({
             </div>
             <ul>
                 {
-                    productList.filter((product) => {
+                    productList.filter(product => {
                         return (!deleteSelected && !downloadSelected) ? true : ((deleteSelected && product.deleteSelected) ||
                             (downloadSelected && product.downloadSelected));
                     }).map((product, i) => {

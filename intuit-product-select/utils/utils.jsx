@@ -10,9 +10,7 @@ import {MYDATA_CARD_LEARN_MORE_URL} from "../constants";
  * @return {boolean} true if at-least one product is selected else false.
  */
 export function isAnyProductSelected(productList, selectedFlagName) {
-    const selectedProducts = productList.filter((product) => {
-        return product[selectedFlagName];
-    });
+    const selectedProducts = productList.filter(product => product[selectedFlagName]);
     return selectedProducts.length > 0;
 };
 
@@ -26,7 +24,7 @@ export function isAnyProductSelected(productList, selectedFlagName) {
  * @return {Array} List of updated products.
  */
 export function updateSelectedProducts(productList, selectedFlagName, productId, selectedFlagValue) {
-    productList.map((product) => {
+    productList.map(product => {
         if (typeof productId !== "undefined") {
             if (product.productId === productId) {
                 product[selectedFlagName] = (typeof selectedFlagValue === "undefined") ? true : selectedFlagValue;
@@ -37,7 +35,7 @@ export function updateSelectedProducts(productList, selectedFlagName, productId,
 };
 
 export function updateAllSelectedProducts(productList, selectedFlagName, selectedFlagValue) {
-    productList.map((product) => {
+    productList.map(product => {
         product[selectedFlagName] = (typeof selectedFlagValue === "undefined") ? true : selectedFlagValue;
     });
     return productList;
