@@ -1,0 +1,20 @@
+{
+  "name": "react-intuit-mydata-components",
+  "version": "1.0.0",
+  "description": "React UI components from the Intuit My Data &amp; Privacy Card of Account Manager app at accounts.intuit.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlorand/react-intuit-mydata-components.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wlorand/react-intuit-mydata-components/issues"
+  },
+  "homepage": "https://github.com/wlorand/react-intuit-mydata-components#readme"
+}
