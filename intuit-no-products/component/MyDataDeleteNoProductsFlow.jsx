@@ -1,12 +1,15 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import BaseWidget from 'web-shell-core/widgets/BaseWidget';
+
+// 3p libs
 import { intlShape } from 'react-intl';
 
+// UI design system
 import Button from '@ids/button-v2';
+
+// utils & constants
 import { handleLearnMore } from 'src/js/utils/utils';
 import { logAnalyticsMsg } from '../../../sagas/analyticsLogger';
-
 import { MYDATA_FLOW, DOWNLOAD_MANAGER } from '../../../constants';
 
 // child components
@@ -15,8 +18,8 @@ import MyDataSpecialHeaderNote from '../MyDataSpecialHeaderNote';
 import ListFromTokenIds from '../../ListFromTokenIds';
 import MyDataDisclosure from '../MyDataDisclosure';
 
-class MyDataDeleteNoProductsFlow extends BaseWidget {
-  
+class MyDataDeleteNoProductsFlow extends Component {
+  // component methods
   handleCancelButtonClick = () => {
     this.props.cancelDeleteFlow();
     logAnalyticsMsg('delete-no-products-cancel-button-click', {});
@@ -55,14 +58,18 @@ class MyDataDeleteNoProductsFlow extends BaseWidget {
   render() {
     const { formatMessage } = this.props.intl;
     const { flowData } = this.props;
-    const headerTitle = formatMessage({ id: 'myData_delete_no_products_header_title' });
+    const headerTitle = formatMessage({
+      id: 'myData_delete_no_products_header_title',
+    });
     const headerTitleDesc = formatMessage({
       id: 'myData_delete_no_products_header_desc',
     });
 
     const specialNote = (
       <MyDataSpecialHeaderNote
-        tokenStr={formatMessage({ id: 'myData_delete_no_products_multi_desc2' })}
+        tokenStr={formatMessage({
+          id: 'myData_delete_no_products_multi_desc2',
+        })}
         stringToBeReplaced="{Learn more}"
         replacedToken={formatMessage({ id: 'myData_learn_more' })}
         onFunctionName={handleLearnMore}
@@ -80,7 +87,9 @@ class MyDataDeleteNoProductsFlow extends BaseWidget {
 
     const specialNoteJsx = (
       <MyDataSpecialHeaderNote
-        tokenStr={formatMessage({ id: 'myData_delete_no_products_special_note' })}
+        tokenStr={formatMessage({
+          id: 'myData_delete_no_products_special_note',
+        })}
         stringToBeReplaced="{download your data}"
         replacedToken={formatMessage({
           id: 'myData_delete_no_products_special_note_string_to_replace',
@@ -91,8 +100,12 @@ class MyDataDeleteNoProductsFlow extends BaseWidget {
 
     const checkBoxOptions = [
       {
-        label: formatMessage({ id: 'myData_delete_no_products_disclosure_option1' }),
-        value: formatMessage({ id: 'myData_delete_no_products_disclosure_value1' }),
+        label: formatMessage({
+          id: 'myData_delete_no_products_disclosure_option1',
+        }),
+        value: formatMessage({
+          id: 'myData_delete_no_products_disclosure_value1',
+        }),
       },
     ];
 
@@ -146,8 +159,8 @@ class MyDataDeleteNoProductsFlow extends BaseWidget {
 export default MyDataDeleteNoProductsFlow;
 
 MyDataDeleteNoProductsFlow.propTypes = {
+  intl: intlShape.isRequired,
   cancelDeleteFlow: PropTypes.func.isRequired,
   displayCardSection: PropTypes.func.isRequired,
-  intl: intlShape.isRequired,
   setMyDataDeleteFlow: PropTypes.func.isRequired,
 };
